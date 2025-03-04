@@ -11,7 +11,7 @@ const JobsListings = ({ isHome = false }) => {
     useEffect(() => {
         const fetchJobs = async () => {
             try {
-                const response = await fetch('http://localhost:8000/jobs');
+                const response = await fetch('/api/jobs');
                 const data = await response.json();
                 setJobs(data);
             } catch (error) {
@@ -30,7 +30,6 @@ const JobsListings = ({ isHome = false }) => {
                 <h2 className="text-3xl font-bold text-indigo-500 mb-6 text-center">
                     {isHome ? 'Recent Jobs' : "Browse Jobs"}
                 </h2>
-
                 {loading ? (<Spinner isLoading={loading} />) : (
                     <>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
